@@ -3,7 +3,7 @@
 ### Description:
 This Visual Studio solution contains two client applications that show how to interact with the JustWare MessageResult business rule.  There is a server project as well that can be used to test the clients if you would like to test it without the business rule.
 
-The messaging that is used is based on a Nuget library called NetMQ. [NetMQ](https://github.com/zeromq/netmq) is a C# port of the popular [ØMQ](http://zeromq.org) library.  The business rule and client application use a publish-subscribe model to pass messages.  When the MessageResult business rule runs, it publishes a message with a specific topic.  The client application subscribes to the same topic so that it can receive messages sent with that topic.  The client in this applications uses an empty string for the topic so that it receives all messages published to the endpoint.
+The messaging that is used is based on a Nuget library called NetMQ. [NetMQ](https://github.com/zeromq/netmq) is a C# port of the popular [ØMQ](http://zeromq.org) library.  The business rule and client application use a publish-subscribe model to pass messages.  When the MessageResult business rule runs, it publishes a message with a specific topic.  The client application subscribes to the same topic so that it can receive messages sent with that topic.  The clients in this solution use an empty string for the topic so that they receive all messages published to the endpoint.
 
 ### Project: Client
 
@@ -11,11 +11,11 @@ The first client uses the NetMQ library directly.  It connects to the server end
 
 ### Project: ClientWithHelper
 
-The second client is similar to the first client, except it abstract all the socket connections to a helper class.  The main program just uses the helper class.  The Helper class has an event that it can subscribe to for when a message is received.  The argument parameter of the event contains typed properties for the topic, root id, and DataTable for the message the was received.
+The second client is similar to the first client, except it abstracts all the socket connections to a helper class.  The main program just uses the helper class.  The Helper class has an event that it can subscribe to for when a message is received.  The argument parameter of the event contains typed properties for the topic, root id, and DataTable for the message that was received.
 
 ### Project: Server
 
-This server can be used to send test messages to the clients without the need of using JustWare and the MessageResult business rule.  It binds to a port specified in the code and then will publish messages to that endpoint.  After the server starts, type a line of text on the command line and the press enter.  The typed text will be sent as a message to all attached clients.
+This server can be used to send test messages to the clients without the need of using JustWare and the MessageResult business rule.  It binds to a port specified in the code and then will publish messages to that endpoint.  After the server starts, type a line of text on the command line and then press enter.  The message will be sent to all attached clients.
 
 ### Testing
 
