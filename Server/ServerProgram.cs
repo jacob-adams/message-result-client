@@ -13,6 +13,7 @@ namespace Server
 			{
 				pubSocket.Bind("tcp://*:5489");
 
+				Console.WriteLine("Type a message to be sent to each connected client.  Type 'q' to quit.");
 				string line;
 				while ((line = Console.ReadLine()) != "q")
 				{
