@@ -11,7 +11,7 @@ namespace Server
 			using (NetMQContext context = NetMQContext.Create())
 			using (NetMQSocket pubSocket = context.CreatePublisherSocket())
 			{
-				pubSocket.Bind("tcp://*:5489");
+				pubSocket.Bind("tcp://*:5002");
 
 				Console.WriteLine("Type a message to be sent to each connected client.  Type 'q' to quit.");
 				string line;
