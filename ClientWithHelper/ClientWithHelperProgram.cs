@@ -7,7 +7,7 @@ namespace ClientWithHelper
 	{
 		static void Main(string[] args)
 		{
-			using (MessageHelper helper = new MessageHelper(address: "tcp://127.0.0.1:5489", topic: ""))
+			using (MessageHelper helper = new MessageHelper(address: "tcp://127.0.0.1:5002", topic: ""))
 			{
 				Console.WriteLine("Waiting for messages. Type \"q\" to quit.");
 				helper.MessageReceived += (sender, eventArgs) =>

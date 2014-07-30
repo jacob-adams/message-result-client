@@ -11,7 +11,7 @@ namespace Client
 			using (NetMQContext context = NetMQContext.Create())
 			using (NetMQSocket subscribeSocket = context.CreateSubscriberSocket())
 			{
-				subscribeSocket.Connect("tcp://127.0.0.1:5489");
+				subscribeSocket.Connect("tcp://127.0.0.1:5002");
 				subscribeSocket.ReceiveReady += SubSocketOnReceiveReady;
 				subscribeSocket.Subscribe(""); //Prefix of messages to receive. Empty string receives all messages
 				Poller poller = new Poller();
