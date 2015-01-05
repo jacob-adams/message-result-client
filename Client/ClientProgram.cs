@@ -14,6 +14,10 @@ namespace Client
 				subscribeSocket.Connect("tcp://127.0.0.1:5002");
 				subscribeSocket.ReceiveReady += SubSocketOnReceiveReady;
 				subscribeSocket.Subscribe(""); //Prefix of messages to receive. Empty string receives all messages
+				subscribeSocket.Options.TcpKeepalive = true;
+				subscribeSocket.Options.TcpKeepaliveIdle = TimeSpan.FromSeconds(5);
+				subscribeSocket.Options.TcpKeepaliveInterval = TimeSpan.FromSeconds(1);
+
 				Poller poller = new Poller();
 				poller.AddSocket(subscribeSocket);
 				Task.Factory.StartNew(poller.Start);
